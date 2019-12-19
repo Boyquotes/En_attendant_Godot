@@ -1,0 +1,104 @@
+@font-face {
+    font-family: montserratlight;
+    src: url(../fonts/Montserrat-Light.otf);
+    }
+    
+
+@font-face {
+    font-family: montserratregular;
+    src: url(../fonts/Montserrat-Regular.otf);
+}
+
+@font-face {
+    font-family: montserratmedium;
+    src: url(../fonts/Montserrat-Medium.otf);
+  }
+
+  @font-face {
+    font-family: montserratsemibold;
+    src: url(../fonts/Montserrat-SemiBold.otf);
+}
+
+@font-face {
+font-family: montserratbold;
+src: url(../fonts/Montserrat-Bold.otf);
+}
+
+
+
+
+
+
+#godot_title {
+    font-family: montserratregular;
+    color: #313232;
+    font-size: 50px;
+    display: block;
+    text-align: left;
+    line-height: 50px;
+    max-width: 300px;
+    
+}
+
+.godot_subtitle{
+    color: #a4a4a4; 
+}
+
+.header{
+    padding: 50px 0px 100px 0px;
+    position: fixed;
+    max-width: 300px;
+}
+
+.container{
+   /*  background: red; */
+}
+.leftnav{
+    overflow: hidden;
+    
+    /*background-color: powderblue;*/
+}
+
+.rightcontent{
+    /*background-color: palegreen;*/
+    padding-top: 50px;
+    padding-right: 15%;
+    
+}
+
+li{
+    text-decoration: none;
+    list-style: none;
+
+}
+
+
+.fichelivre{
+    padding-bottom: 20px;
+}
+
+
+.nameofthebook{
+    color: #313232;
+font-family: montserratregular;
+text-transform: uppercase;
+font-size: 1.4em;
+line-height: 30px;
+margin: 0;
+
+}
+
+.contentofthebook{
+
+    color: red !important;
+    font-family: montserratregular;
+
+}
+
+
+
+.authorofthebook{
+    color: #a4a4a4; 
+    font-family: montserratsemibold;
+}
+
