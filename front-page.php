@@ -34,10 +34,12 @@
                             $book_title = get_the_title();
                             $book_article = get_the_content();
                             $book_author = get_field('author');
-                            ?>
+                            $book_citations = get_field('citations');
+
+                    ?>
                             
                         
-                            
+                    <div class="titleandauthor"> <a class="derouleur" href="#">      
                         <?php            
                             
                             if( ! empty( $book_title ) ) {
@@ -51,6 +53,15 @@
                         if( ! empty( $book_author ) ) {
                             echo  '        
                             <p class="authorofthebook">' . $book_author .'</p>';
+                        }
+                        ?>
+                    </a></div>
+
+                        <?php            
+
+                        if( ! empty( $book_citations ) ) {
+                        echo  '        
+                        <p class="citationsofthebook">' . $book_citations .'</p>';
                         }
                         ?>
 
