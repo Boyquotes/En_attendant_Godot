@@ -11,7 +11,7 @@
             <nav class="header">
                 <?php $blog_title = get_bloginfo(); ?>
                 <h1 id="godot_title"> <?php echo $blog_title ?> </h1>
-                <p class="godot_subtitle"> Blog-mémo de rencontres littéraires et cinématographiques </p>
+                <p class="godot_subtitle"> Blog-mémo de rencontres littéraires </p>
             </nav>  
         </div>
         

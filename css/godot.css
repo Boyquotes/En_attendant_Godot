@@ -24,6 +24,14 @@ font-family: montserratbold;
 src: url(../fonts/Montserrat-Bold.otf);
 }
 
+.header{
+    position: fixed;
+    top: 20%;
+    left: 3%;
+    max-width: 300px;
+}
+
+
 
 #godot_title {
     font-family: montserratregular;
@@ -40,21 +48,14 @@ src: url(../fonts/Montserrat-Bold.otf);
     color: #a4a4a4; 
     font-family: montserratregular;
     font-size: 16px;
-    max-width: 280px;
+    max-width: 180px;
     line-height: 22px;
-}
-
-.header{
-    
-    position: fixed;
-    top: 120px;
-    left: 50px;
-    max-width: 300px;
 }
 
 .container{
    /*  background: red; */
 }
+
 .leftnav{
     overflow: hidden;
 
@@ -63,7 +64,6 @@ src: url(../fonts/Montserrat-Bold.otf);
 .rightcontent{
     padding: 100px 0 0 0;
     margin: 0px;
-    
        
 }
 
@@ -122,8 +122,6 @@ display: block;
 
 }
 
-
-
 .greenback{
     background-color:#3C9;
     color: white;
@@ -146,10 +144,6 @@ display: block;
 .pagination{
     padding-top: 30px;
 }
-
-
-
-
 
 
 
@@ -191,3 +185,41 @@ display: block;
 }
 
 
+@media screen and (max-width:574px) {
+    .header{
+    
+        max-width: 600px;
+        position: static;
+        padding: 0px;
+        margin: 0px;
+        padding-bottom:20px ;
+        margin: 0 auto;
+        text-align: center;    
+    }
+
+    #godot_title {
+
+        font-size: 50px;
+        display: block;
+        text-align: center;
+        line-height: 50px;
+        max-width: 600px;
+        padding-bottom: 0px;
+        padding-top: 50px;
+        font-size: 2.6em;
+        margin-bottom:0px;
+    }   
+    
+    .godot_subtitle{
+        max-width: 300px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .rightcontent{
+        padding: 50px 6% 0 6%;
+        margin: 0px; 
+    }
+
+
+}
