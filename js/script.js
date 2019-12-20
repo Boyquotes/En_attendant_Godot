@@ -1,5 +1,17 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
-   /* alert('test');*/
 
-})
+
+    $('.titleandauthor').click(function() {
+       /* $(this).children('contentofthebook').toggle('slow');*/
+         $(this).siblings( ".contentofthebook" ).toggle('slow'); 
+       /* $(this).siblings( 'p' ).toggle('slow'); */
+
+
+    
+    });
+
+  
+
+
+});

@@ -25,10 +25,6 @@ src: url(../fonts/Montserrat-Bold.otf);
 }
 
 
-
-
-
-
 #godot_title {
     font-family: montserratregular;
     color: #313232;
@@ -37,16 +33,22 @@ src: url(../fonts/Montserrat-Bold.otf);
     text-align: left;
     line-height: 50px;
     max-width: 300px;
-    
+    padding-bottom: 30px;
 }
 
 .godot_subtitle{
     color: #a4a4a4; 
+    font-family: montserratregular;
+    font-size: 16px;
+    max-width: 280px;
+    line-height: 22px;
 }
 
 .header{
-    padding: 50px 0px 100px 0px;
+    
     position: fixed;
+    top: 120px;
+    left: 50px;
     max-width: 300px;
 }
 
@@ -55,15 +57,18 @@ src: url(../fonts/Montserrat-Bold.otf);
 }
 .leftnav{
     overflow: hidden;
-    
-    /*background-color: powderblue;*/
+
 }
 
 .rightcontent{
-    /*background-color: palegreen;*/
-    padding-top: 100px;
-    padding-right: 15%;
+    padding: 100px 0 0 0;
+    margin: 0px;
     
+       
+}
+
+ul{
+    padding: 0px;
 }
 
 li{
@@ -74,44 +79,115 @@ li{
 
 
 .fichelivre{
-    padding-bottom: 20px;
+    padding-right: 5%;
+    max-width: 600px;
+    
+
 }
 
 
-.nameofthebook{
+.titleandauthor{
+    border-left: 4px solid #313232;
+    padding-left: 9px;
+}
+
+.titleandauthor a{
+    text-decoration: none;
+}
+
+.titleofthebook{
     color: #313232;
-font-family: montserratregular;
-text-transform: uppercase;
-font-size: 1.4em;
-line-height: 30px;
-margin: 0;
-
-}
-
-.citationsofthebook{
-
     font-family: montserratregular;
-    /*display: none;*/
-    color: #313232;
-    line-height: 30px;
-
+    text-transform: uppercase;
+    font-size: 1.2em;
+    line-height: 25px;
+    margin: 0;
 }
-
-
 
 .authorofthebook{
     color: #a4a4a4; 
     font-family: montserratsemibold;
 }
 
-.titleandauthor{
-border-left: 5px solid #313232;
-padding-left: 10px;
+.contentofthebook{
+    font-family: montserratregular;
+    color: #3b3d3d;
+    line-height: 28px;
+    display:none;
+    padding-bottom: 40px;
+}
+
+.contentofthebook.single{
+display: block;
 
 }
 
-.titleandauthor a{
-    text-decoration: none;
 
 
+.greenback{
+    background-color:#3C9;
+    color: white;
+    padding: 5px 15px 0px 20px;
+    margin: 0px;
 }
+
+
+.greentext{
+    color:#3C9;
+    font-family: montserratmedium;
+}
+
+.yellowback{
+    background-color:#ffff66;
+    padding: 5px 15px 0px 20px;
+    margin: 0px;
+}
+
+.pagination{
+    padding-top: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*Pagination */
+.pagination {
+   clear:both;
+   position:relative;
+   font-size:11px; /* Pagination text size */
+   line-height:13px;
+   float:right; /* Pagination float direction */
+}
+.pagination span, .pagination a {
+   display:block;
+   float:left;
+   margin: 2px 2px 2px 0;
+   padding:6px 9px 5px 9px;
+   text-decoration:none;
+   width:auto;
+   color:#fff; /* Pagination text color */
+   background: #555; /* Pagination non-active background color */
+   -webkit-transition: background .15s ease-in-out;
+   -moz-transition: background .15s ease-in-out;
+   -ms-transition: background .15s ease-in-out;
+   -o-transition: background .15s ease-in-out;
+   transition: background .15s ease-in-out;
+}
+.pagination a:hover{
+   color:#fff;
+   background: #6AAC70; /* Pagination background on hover */
+}
+.pagination .current{
+   padding:6px 9px 5px 9px;
+   background: #6AAC70; /* Current page background */
+   color:#fff;
+}
+
+
