@@ -1,12 +1,7 @@
 <?php get_header( ); ?>
 
 <div class="container">
-
-        
     <div class="row">
-
-        <!--_____ Left • Sidebar_____  -->
-        
         <div class="col-sm-4 leftnav">
             <nav class="header">
                 <?php $blog_title = get_bloginfo(); ?>
@@ -15,107 +10,116 @@
             </nav>  
         </div>
         
-        <!--_____ Right • Content and articles _____  -->
 
         <div class="col-sm-8 rightcontent">
-            
-            <!-- Query For post with "book" post type -->
             <?php
-                $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-                $args = array(
-                'post_type'   => 'book',
-                'post_status' => 'publish',
-                'order'=>'DESC',
-                'paged' => $paged
-                );
+            $paged = get_query_var( 'page' ) ? get_query_var( 'page' ) : 1;
+            $args = array(
+            'post_type'   => 'book',
+            'post_status' => 'publish',
+            'order'=>'DESC',
+            'posts_per_page' => 10,
+            'paged' => $paged
+            );
 
-                $wp_query = new WP_Query( $args );
-                if( $wp_query->have_posts() ) :
+            $wp_query = new WP_Query( $args );
             ?>
-                
-            <ul>
-                <?php while( $wp_query->have_posts() ) : $wp_query->the_post();?>
-
-                <!----- DIV Fiche livre ----->
-                <li class="fichelivre" id="<?php the_ID(); ?>">
-                    <?php
-                            $book_title = get_the_title();
-                            $book_article = get_the_content();
-                            $book_author = get_field('author');
-                            $book_content = get_field('citations');
-                    ?>
+            <ul id="books_container">
+            <?php 
+            if( $wp_query->have_posts() ) : 
+                while( $wp_query->have_posts() ) : 
+                    $wp_query->the_post();
+                    $book_title = get_the_title();
+                    $book_article = get_the_content();
+                    $book_author = get_field('author');
                     
-                    <div class="titleandauthor"> 
-                        <a class="derouleur" href="#">          
-                        <!-- Titre du livre  -->
-                        <?php              
-                        if( ! empty( $book_title ) ) {
-                            echo  '        
-                            <p class="titleofthebook">' . $book_title .'</p>';
-                        }
+
+                    ?> <!----- DIV Fiche livre ----->
+                    <li class="fichelivre" id="<?php the_ID(); ?>">
+                        <div class="titleandauthor <?php echo $class_color?>"> 
+                        
+                            <p class="titleofthebook"> <?php echo $book_title;?> </p>      
+                            <p class="authorofthebook"> <?php echo $book_author?></p>
+                            
+                        </div>
+                        <div class="contentofthebook">
+                        <?php
+                            // check if the repeater field has rows of data
+                            if( have_rows('citations_livre') ):?>
+                            
+                            <ul class="liste_citations">
+                            
+                            <?php
+                            // loop through the rows of data
+                            while ( have_rows('citations_livre') ) : the_row();
+                            $citation = get_sub_field('citation');
+                            $page = get_sub_field('page'); ?>
+
+                            <!----- Display a sub field value ----->                          
+                            
+                            <li class="citation">
+                            <p> <?php echo $citation; ?></p>
+                            <?php 
+
+                            if( ! empty( $page ) ) {
+                            ?> <p class="whichpage"><i class="far fa-bookmark"></i>p.<?php echo $page; ?></p></li>
+                            
+                            <?php
+                            }
+                            endwhile; ?>
+                            </ul>
+
+
+                            <?php else :
+                            // no rows found
+                            endif;
+
                         ?>
                         
-                        <!-- Auteur du livre  -->
-                        <?php          
-                        if( ! empty( $book_author ) ) {
-                            echo  '        
-                            <p class="authorofthebook">' . $book_author .'</p>';
-                        }
-                        ?>
-                        </a>
-                    </div>
-
-
-                    <!-- Contenu de la page wordpress  -->
-                    <?php    /*  
-
-                    if( ! empty( $book_article ) ) {
-                    echo  '        
-                    <p class="contentofthebook">' . $book_article .'</p>';
-                    } 
-                    */?>
-
-                    <!-- Contenu du livre  -->
-                    <?php   /*         
-
-                    if( ! empty( $book_content ) ) {
-                    echo  '        
-                    <div class="contentofthebook">' . $book_content .'</div>';
-                    } */
-                    ?>
-
-                    <div class="contentofthebook">
+                        </div>
+                    </li>
                     <?php 
-                        if( ! empty( $book_article ) ) {
-                        echo  '<p class="contentofthebook">' . $book_article .'</p>';
-                        } 
-                    ?>
-                    </div>
-                    
-                </li>
-              
-
-                <?php endwhile; ?>
-                <?php previous_posts_link('&laquo; Previous') ?>
-                <?php next_posts_link('More &raquo;') ?>
                 
+                endwhile; ?>
+                </ul>
+                <?php
+               
                 
-            </ul>
 
+            else : esc_html_e( 'No testimonials in the diving taxonomy!', 'text-domain' ); 
+            endif; ?>
+                <div class="pagination">
+                <?php 
+                 
+
+                /*posts_nav_link();*/
+
+
+                $big = 999999999; // need an unlikely integer
+
+                echo paginate_links( array(
+                    'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+                    'format' => '?paged=%#%',
+                    'current' => max( 1, get_query_var('paged') ),
+                    'total' => $wp_query->max_num_pages
+                ) );
+
+                
+                /*the_posts_pagination();*/
             
-            <?php wp_reset_postdata(); ?>
-            <?php else : esc_html_e( 'No testimonials in the diving taxonomy!', 'text-domain' ); endif; ?>
+                /*
+                previous_posts_link('&laquo; Previous');
+                next_posts_link('More &raquo;'); */
+                
 
+                ?>
+
+                </div>
+                
         </div>
         
-        
-
-        
-
-        
     </div>
-          
-
 </div>
+
 
 <?php get_footer(); ?>

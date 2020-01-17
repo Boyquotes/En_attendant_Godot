@@ -80,7 +80,7 @@ li{
 
 .fichelivre{
     padding-right: 5%;
-    max-width: 600px;
+    max-width: 580px;
     
 
 }
@@ -89,10 +89,40 @@ li{
 .titleandauthor{
     border-left: 4px solid #313232;
     padding-left: 9px;
+    cursor: pointer;
+}
+
+
+.titleandauthor:hover{
+    border-left: 4px solid #a4a4a4; ;
+    padding-left: 9px;
+    cursor: pointer;
+}
+
+.page-numbers{
+    color: #a4a4a4;
+}
+
+.pagination{
+    margin-top: 50px;
+    float: left !important;
+}
+
+.pagination a{
+   background-color: #E4E4E4 !important; 
+   color: #313232 !important;
+}
+.titleandauthor.green{
+    /*border-left: 4px solid #3C9;*/
+
 }
 
 .titleandauthor a{
     text-decoration: none;
+}
+
+.current{
+    background-color: #00C382 !important;
 }
 
 .titleofthebook{
@@ -106,7 +136,7 @@ li{
 
 .authorofthebook{
     color: #a4a4a4; 
-    font-family: montserratsemibold;
+    font-family: montserratmedium;
 }
 
 .contentofthebook{
@@ -115,11 +145,41 @@ li{
     line-height: 28px;
     display:none;
     padding-bottom: 40px;
+    font-size: 18px;
+    line-height: 1.8em;
+
 }
 
 .contentofthebook.single{
 display: block;
+}
 
+.contentofthebook blockquote p{
+    font-size: 18px;
+    line-height: 1.8em;
+    text-align: left;
+}
+
+.whichpage{
+    text-align: center !important;
+    padding-top: 0px;
+    margin-top: -10px;
+    color: #a4a4a4;   
+    font-size: 17px; 
+}
+
+.whichpage i{
+padding-right: 10px;
+}
+
+.liste_citations li{
+    margin-bottom: 40px;
+
+}
+
+
+.yellow_underline{
+background-color: yellow;
 }
 
 .greenback{
